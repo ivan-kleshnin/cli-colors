@@ -1,0 +1,9 @@
+{
+  "name": "@cli/colors",
+  "version": "0.0.1",
+  "description": "CLI colors",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ivan Kleshnin <ivan@paqmind.com> (paqmind.com)",
+  "license": "MIT"
+}
