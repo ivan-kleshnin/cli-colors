@@ -1,4 +1,4 @@
-let styles = {
+const styles = {
   // reset
   reset: "\u001b[0m",
 
