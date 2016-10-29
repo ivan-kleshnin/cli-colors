@@ -11,7 +11,7 @@
 ## Usage
 
 ```js
-let {blue, red} = require("./index")
+let {blue, red} = require("cli-colors")
 
 console.log("one " + red("two " + blue("three ") + "four " + blue("five ") + "six ") + "seven")
 ```
