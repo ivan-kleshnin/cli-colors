@@ -17,3 +17,56 @@ console.log("one " + red("two " + bold("three ") + "four ") + "five")
 ```
 
 ![Sample](./sample.gif)
+
+## API
+
+```js
+let colors = require("cli-colors")
+// or import * as colors from "cli-colors"
+```
+
+### Modifiers
+
+```
+colors.bold
+colors.hidden
+colors.inverse
+colors.italic
+colors.strikethrough
+colors.underline
+```
+
+### Colors
+
+```js
+colors.black
+colors.blue
+colors.cyan
+colors.gray
+colors.green
+colors.grey (alias)
+colors.magenta
+colors.red
+colors.yellow
+colors.white
+```
+
+### Backgrounds
+
+```js
+colors.bgBlack
+colors.bgBlue
+colors.bgCyan
+colors.bgGreen
+colors.bgMagenta
+colors.bgRed
+colors.bgYellow
+colors.bgWhite
+```
+
+### Special
+
+```
+colors.reset
+colors.styles
+```
