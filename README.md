@@ -24,11 +24,11 @@ Use function composition to combine styles:
 let {pipe} = require("ramda")
 let {bgBlue, white} = require("cli-colors")
 
-let border = pipe(bgBlue, white)
+let banner = pipe(bgBlue, white)
 
-console.log(border("============="))
-console.log(border("= H E L L O ="))
-console.log(border("============="))
+console.log(banner("============="))
+console.log(banner("  H E L L O  "))
+console.log(banner("============="))
 ```
 
 ## API
