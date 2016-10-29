@@ -6,7 +6,7 @@
 
 [Marak/colors](https://github.com/Marak/colors.js) – modifies `String` prototype... [facepalm](https://github.com/yeoman/yo/issues/68).
 
-[SindreSorhus/chalk](https://github.com/chalk) – overengineered, fluent API sucks at composition
+[SindreSorhus/chalk](https://github.com/chalk) – overengineered, fluent API [sucks](http://paqmind.com/posts/fluent-api-debunked/) at composition
 
 ## Usage
 
@@ -17,6 +17,19 @@ console.log("one " + red("two " + blue("three ") + "four " + blue("five ") + "si
 ```
 
 ![Sample](./sample.gif)
+
+Use function composition to combine styles:
+
+```js
+let {pipe} = require("ramda")
+let {bgBlue, white} = require("cli-colors")
+
+let border = pipe(bgBlue, white)
+
+console.log(border("============="))
+console.log(border("= H E L L O ="))
+console.log(border("============="))
+```
 
 ## API
 
