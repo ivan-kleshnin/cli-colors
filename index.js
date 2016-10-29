@@ -1,3 +1,5 @@
+let escape = require("escape-string-regexp")
+
 let styles = {
   // reset
   reset: "\u001b[0m",
@@ -32,35 +34,44 @@ let styles = {
   bgWhite: {open: "\u001b[47m", close: "\u001b[49m"}
 }
 
+let make = (style) => {
+  let styleClose = new RegExp(escape(styles[style].close), "g")
+  return (v) => {
+    return styles[style].open
+      + v.replace(styleClose, styles[style].open)
+      + styles[style].close
+  }
+}
+
 // modifiers
-module.exports.bold = (v) => styles.bold.open + v + styles.bold.close
-module.exports.hidden = (v) => styles.hidden.open + v + styles.hidden.close
-module.exports.inverse = (v) => styles.inverse.open + v + styles.inverse.close
-module.exports.italic = (v) => styles.italic.open + v + styles.italic.close
-module.exports.strikethrough = (v) => styles.strikethrough.open + v + styles.strikethrough.close
-module.exports.underline = (v) => styles.underline.open + v + styles.underline.close
+module.exports.bold = make("bold")
+module.exports.hidden = make("hidden")
+module.exports.inverse = make("inverse")
+module.exports.italic = make("italic")
+module.exports.strikethrough = make("strikethrough")
+module.exports.underline = make("underline")
 
 // colors
-module.exports.black = (v) => styles.black.open + v + styles.black.close
-module.exports.blue = (v) => styles.blue.open + v + styles.blue.close
-module.exports.cyan = (v) => styles.cyan.open + v + styles.cyan.close
-module.exports.gray = (v) => styles.gray.open + v + styles.gray.close
-module.exports.green = (v) => styles.green.open + v + styles.green.close
+module.exports.black = make("black")
+module.exports.blue = make("blue")
+module.exports.cyan = make("cyan")
+module.exports.gray = make("gray")
+module.exports.green = make("green")
 module.exports.grey = module.exports.gray
-module.exports.magenta = (v) => styles.magenta.open + v + styles.magenta.close
-module.exports.red = (v) => styles.red.open + v + styles.red.close
-module.exports.yellow = (v) => styles.yellow.open + v + styles.yellow.close
-module.exports.white = (v) => styles.white.open + v + styles.white.close
+module.exports.magenta = make("magenta")
+module.exports.red = make("red")
+module.exports.yellow = make("yellow")
+module.exports.white = make("white")
 
 // backgrounds
-module.exports.bgBlack = (v) => styles.bgBlack.open + v + styles.bgBlack.close
-module.exports.bgBlue = (v) => styles.bgBlue.open + v + styles.bgBlue.close
-module.exports.bgCyan = (v) => styles.bgCyan.open + v + styles.bgCyan.close
-module.exports.bgGreen = (v) => styles.bgGreen.open + v + styles.bgGreen.close
-module.exports.bgMagenta = (v) => styles.bgMagenta.open + v + styles.bgMagenta.close
-module.exports.bgRed = (v) => styles.bgRed.open + v + styles.bgRed.close
-module.exports.bgYellow = (v) => styles.bgYellow.open + v + styles.bgYellow.close
-module.exports.bgWhite = (v) => styles.bgWhite.open + v + styles.bgWhite.close
+module.exports.bgBlack = make("bgBlack")
+module.exports.bgBlue = make("bgBlue")
+module.exports.bgCyan = make("bgCyan")
+module.exports.bgGreen = make("bgGreen")
+module.exports.bgMagenta = make("bgMagenta")
+module.exports.bgRed = make("bgRed")
+module.exports.bgYellow = make("bgYellow")
+module.exports.bgWhite = make("bgWhite")
 
 // special
 module.exports.reset = styles.reset

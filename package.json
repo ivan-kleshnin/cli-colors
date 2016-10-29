@@ -5,5 +5,8 @@
   "main": "index.js",
   "scripts": {},
   "author": "Ivan Kleshnin <ivan@paqmind.com> (paqmind.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "escape-string-regexp": "^1.0.5"
+  }
 }

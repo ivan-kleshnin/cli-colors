@@ -11,9 +11,9 @@
 ## Usage
 
 ```js
-let {red, bold} = require("cli-colors")
+let {blue, red} = require("./index")
 
-console.log("one " + red("two " + bold("three ") + "four ") + "five")
+console.log("one " + red("two " + blue("three ") + "four " + blue("five ") + "six ") + "seven")
 ```
 
 ![Sample](./sample.gif)
